@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LSM-EI - Tecnologías</title>
+    <link rel="icon" href="images/logo.png" src="image/png">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            text-decoration: none;
+            list-style: none;
+        }
+
+        body {
+            font-family: 'Quicksand', sans-serif;
+        }
+
+        img {
+            max-width: 100%;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* HEADER BASE */
+        .header {
+            background-color: #F1F0EB;
+            padding: 20px 0;
+            position: relative;
+        }
+
+        .menu {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 30px;
+        }
+
+        .logo {
+            color: #4BA8C8;
+            font-size: 25px;
+            font-weight: 800;
+            text-transform: uppercase;
+        }
+
+        .navbar ul {
+            display: flex;
+            gap: 20px;
+        }
+
+        .navbar ul li a {
+            font-size: 18px;
+            padding: 15px 20px;
+            color: #333128;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        .navbar ul li a:hover {
+            color: #4BA8C8;
+        }
+
+        .navbar ul li a.active {
+            color: #4BA8C8;
+            font-weight: 700;
+        }
+
+        #menu {
+            display: none;
+        }
+
+        .menu-icono {
+            width: 25px;
+        }
+
+        .menu label {
+            cursor: pointer;
+            display: none;
+        }
+
+        /* SECCIONES BASE */
+        .page-section {
+            padding: 80px 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-header span {
+            font-size: 16px;
+            color: #4BA8C8;
+            font-weight: 700;
+            display: block;
+            margin-bottom: 15px;
+        }
+
+        .section-header h1 {
+            font-size: 45px;
+            color: #333128;
+            margin-bottom: 25px;
+            line-height: 1.2;
+        }
+
+        .section-header h2 {
+            font-size: 35px;
+            color: #333128;
+            margin-bottom: 25px;
+            line-height: 1.2;
+        }
+
+        .section-header p {
+            font-size: 18px;
+            color: #181713;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* CARDS BASE */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .card {
+            background: white;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card img {
+            width: 80px;
+            height: 80px;
+            margin-bottom: 20px;
+        }
+
+        .card h3 {
+            font-size: 20px;
+            color: #4BA8C8;
+            margin-bottom: 15px;
+        }
+
+        .card p {
+            font-size: 16px;
+            color: #181713;
+            margin: 0;
+        }
+
+        /* BOTONES BASE */
+        .btn-primary {
+            display: inline-block;
+            padding: 15px 30px;
+            color: #FFFFFF;
+            border-radius: 25px;
+            background-color: #4BA8C8;
+            text-transform: capitalize;
+            font-weight: 600;
+            transition: background-color 0.3s;
+        }
+
+        .btn-primary:hover {
+            background-color: #3a8fa8;
+        }
+
+        .btn-secondary {
+            display: inline-block;
+            padding: 15px 30px;
+            color: #4BA8C8;
+            border: 2px solid #4BA8C8;
+            border-radius: 25px;
+            background-color: transparent;
+            text-transform: capitalize;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .btn-secondary:hover {
+            background-color: #4BA8C8;
+            color: white;
+        }
+
+        /* FOOTER BASE */
+        .footer {
+            padding: 50px 0;
+            background-color: #4BA8C8;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            padding: 0 30px;
+        }
+
+        .link h3 {
+            color: #FFFFFF;
+            font-size: 17px;
+            margin-bottom: 15px;
+        }
+
+        .link a {
+            color: #F3F3F3;
+            font-size: 15px;
+            display: block;
+            margin-bottom: 10px;
+            transition: color 0.3s;
+        }
+
+        .link a:hover {
+            color: #FFFFFF;
+        }
+
+        /* ESTILOS ESPECÍFICOS PARA TECNOLOGÍAS */
+        .tech-intro {
+            background: linear-gradient(135deg, #4BA8C8 0%, #3a8fa8 100%);
+            color: white;
+            padding: 60px 0;
+            margin-bottom: 80px;
+        }
+
+        .tech-intro .container {
+            text-align: center;
+        }
+
+        .tech-intro h1 {
+            color: white;
+            font-size: 48px;
+            margin-bottom: 25px;
+        }
+
+        .tech-intro p {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .tech-card {
+            background: white;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            padding: 40px;
+            border-radius: 15px;
+            text-align: left;
+            transition: all 0.3s ease;
+            border-top: 4px solid #4BA8C8;
+        }
+
+        .tech-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+
+        .tech-card .icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #4BA8C8, #3a8fa8);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 25px;
+            font-size: 35px;
+            color: white;
+        }
+
+        .tech-card h3 {
+            font-size: 24px;
+            color: #333128;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .tech-card p {
+            font-size: 16px;
+            color: #555;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        .tech-stats {
+            background: #f8f9fa;
+            padding: 60px 0;
+            margin: 80px 0;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            text-align: center;
+        }
+
+        .stat-item h4 {
+            font-size: 36px;
+            color: #4BA8C8;
+            font-weight: 800;
+            margin-bottom: 10px;
+        }
+
+        .stat-item p {
+            font-size: 16px;
+            color: #666;
+            margin: 0;
+        }
+        @media(max-width:991px) {
+            .menu {
+                padding: 20px;
+            }
+            
+            .menu label {
+                display: initial;
+            }
+            
+            .navbar {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background-color: #303030;
+                display: none;
+            }
+            
+            .navbar ul {
+                flex-direction: column;
+                gap: 0;
+            }
+            
+            .navbar ul li {
+                width: 100%;
+            }
+            
+            .navbar ul li a {
+                color: #FFFFFF;
+                padding: 20px;
+                border-bottom: 1px solid #444;
+            }
+            
+            .logo {
+                display: none;
+            }
+            
+            #menu:checked ~ .navbar {
+                display: block;
+            }
+
+            .section-header h1 {
+                font-size: 35px;
+            }
+
+            .section-header h2 {
+                font-size: 28px;
+            }
+            
+            .cards-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+                gap: 30px;
+            }
+
+            .page-section {
+                padding: 40px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- HEADER COMÚN -->
+    <header class="header">
+        <div class="menu container">
+            <a href="index.html" class="logo">logo</a>
+            <input type="checkbox" id="menu" />
+            <label for="menu">
+                <img src="images/logo.png" class="menu-icono" alt="menu">
+            </label>
+            <nav class="navbar">
+                <ul>
+                    <li><a href="tec.html">Tecnologías</a></li>
+                    <li><a href="beneficio.html">Beneficios</a></li>
+                    <li><a href="equipo.html">Equipo</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- HERO SECTION TECNOLOGÍAS -->
+    <section class="tech-intro">
+        <div class="container">
+            <h1>Tecnologías de LSM-EI</h1>
+            <p>
+                LSM-EI utiliza tecnologías emergentes para ofrecer una experiencia inmersiva, educativa y accesible. 
+                Nuestra app se apoya en inteligencia artificial, realidad aumentada y visión por computadora para 
+                enseñar la Lengua de Señas Mexicana de forma moderna e intuitiva.
+            </p>
+        </div>
+    </section>
+
+    <!-- CONTENIDO PRINCIPAL TECNOLOGÍAS -->
+    <main class="page-section container">
+        <div class="section-header">
+            <span>Nuestras</span>
+            <h2>Tecnologías Principales</h2>
+            <p>Conoce las herramientas y tecnologías que hacen posible una experiencia de aprendizaje única</p>
+        </div>
+
+        <!-- GRID DE TECNOLOGÍAS -->
+        <div class="tech-grid">
+            <div class="tech-card">
+                <div class="icon">🎮</div>
+                <h3>Unity</h3>
+                <p>Motor de desarrollo para crear entornos interactivos y compatibilidad con Android. 
+                   Permite experiencias inmersivas y una interfaz intuitiva que funciona perfectamente 
+                   en dispositivos móviles.</p>
+            </div>
+
+            <div class="tech-card">
+                <div class="icon">👁️</div>
+                <h3>Visión por Computadora</h3>
+                <p>Detecta movimientos de la mano en tiempo real usando la cámara del dispositivo. 
+                   Analiza gestos y posturas con precisión para una experiencia de aprendizaje fluida.</p>
+            </div>
+
+            <div class="tech-card">
+                <div class="icon">🧠</div>
+                <h3>Inteligencia Artificial</h3>
+                <p>Reconoce y valida las señas, aprendiendo del usuario para mejorar la precisión. 
+                   Se adapta al ritmo de aprendizaje individual y ofrece retroalimentación personalizada.</p>
+            </div>
+
+            <div class="tech-card">
+                <div class="icon">🥽</div>
+                <h3>Realidad Aumentada</h3>
+                <p>Muestra animaciones en 3D que enseñan cómo hacer cada seña correctamente. 
+                   Superpone elementos virtuales sobre el mundo real para una experiencia inmersiva.</p>
+            </div>
+
+            <div class="tech-card">
+                <div class="icon">📱</div>
+                <h3>Modo Offline</h3>
+                <p>La aplicación funciona sin conexión constante, ideal para comunidades con conectividad limitada. 
+                   Garantiza acceso continuo al aprendizaje sin depender de internet.</p>
+            </div>
+        </div>
+
+        <!-- ESTADÍSTICAS TECNOLÓGICAS -->
+        <section class="tech-stats">
+            <div class="container">
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <h4>99%</h4>
+                        <p>Precisión en reconocimiento</p>
+                    </div>
+                    <div class="stat-item">
+                        <h4>0.2s</h4>
+                        <p>Tiempo de respuesta</p>
+                    </div>
+                    <div class="stat-item">
+                        <h4>100%</h4>
+                        <p>Funcionalidad offline</p>
+                    </div>
+                    <div class="stat-item">
+                        <h4>Android 7+</h4>
+                        <p>Compatibilidad</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CALL TO ACTION -->
+        <div style="text-align: center; margin-top: 60px;">
+            <a href="beneficio.html" class="btn-primary">Ver Beneficios</a>
+            <a href="contacto.html" class="btn-secondary">Más Información</a>
+        </div>
+    </main>
+
+    <!-- FOOTER COMÚN -->
+    <footer class="footer">
+        <div class="footer-content container">
+            <div class="link">
+                <h3>Proyecto</h3>
+                <ul>
+                    <li><a href="#">¿Qué es LSM-EI?</a></li>
+                    <li><a href="tecnologias.html">Tecnologías</a></li>
+                    <li><a href="#">Impacto</a></li>
+                    <li><a href="beneficios.html">Beneficios</a></li>
+                </ul>
+            </div>
+            
+            <div class="link">
+                <h3>Equipo</h3>
+                <ul>
+                    <li><a href="equipo.html">Conócenos</a></li>
+                    <li><a href="#">Asesores</a></li>
+                    <li><a href="#">Colaboradores</a></li>
+                    <li><a href="#">Créditos</a></li>
+                </ul>
+            </div>
+            
+            <div class="link">
+                <h3>Contacto</h3>
+                <ul>
+                    <li><a href="contacto.html">info@lsm-ei.mx</a></li>
+                    <li><a href="#">Formularios</a></li>
+                    <li><a href="#">Soporte</a></li>
+                    <li><a href="#">Ubicación</a></li>
+                </ul>
+            </div>
+            
+            <div class="link">
+                <h3>Legal</h3>
+                <ul>
+                    <li><a href="#">Aviso de privacidad</a></li>
+                    <li><a href="#">Propiedad intelectual</a></li>
+                    <li><a href="#">Términos de uso</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Script básico para el menú móvil si es necesario
+        document.addEventListener('DOMContentLoaded', function() {
+            // Marcar página activa en el menú
+            const currentPage = window.location.pathname.split('/').pop();
+            const menuLinks = document.querySelectorAll('.navbar a');
+            
+            menuLinks.forEach(link => {
+                if (link.getAttribute('href') === currentPage) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

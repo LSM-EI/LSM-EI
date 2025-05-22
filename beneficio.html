@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LSM-EI - Beneficios</title>
+    <link rel="icon" href="images/logo.png" src="image/png">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            text-decoration: none;
+            list-style: none;
+        }
+
+        body {
+            font-family: 'Quicksand', sans-serif;
+            overflow-x: hidden;
+        }
+
+        img {
+            max-width: 100%;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* HEADER BASE */
+        .header {
+            background-color: #F1F0EB;
+            padding: 20px 0;
+            position: relative;
+        }
+
+        .menu {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 30px;
+        }
+
+        .logo {
+            color: #4BA8C8;
+            font-size: 25px;
+            font-weight: 800;
+            text-transform: uppercase;
+        }
+
+        .navbar ul {
+            display: flex;
+            gap: 20px;
+        }
+
+        .navbar ul li a {
+            font-size: 18px;
+            padding: 15px 20px;
+            color: #333128;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        .navbar ul li a:hover {
+            color: #4BA8C8;
+        }
+
+        .navbar ul li a.active {
+            color: #4BA8C8;
+            font-weight: 700;
+        }
+
+        #menu {
+            display: none;
+        }
+
+        .menu-icono {
+            width: 25px;
+        }
+
+        .menu label {
+            cursor: pointer;
+            display: none;
+        }
+
+        /* ESTILOS ESPECÍFICOS PARA BENEFICIOS */
+        .benefits-hero {
+            background: linear-gradient(135deg, #F1F0EB 0%, #e8e6df 100%);
+            padding: 80px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .benefits-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -50%;
+            width: 200%;
+            height: 100%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100" fill="%234BA8C8" opacity="0.05"><polygon points="0,0 1000,100 1000,0"/></svg>');
+            z-index: 1;
+        }
+
+        .benefits-hero .container {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+        }
+
+        .benefits-hero h1 {
+            font-size: 50px;
+            color: #333128;
+            margin-bottom: 25px;
+            font-weight: 800;
+        }
+
+        .benefits-hero p {
+            font-size: 22px;
+            color: #555;
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        .benefits-main {
+            padding: 100px 0;
+            background: white;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+            gap: 50px;
+            margin-top: 60px;
+        }
+
+        .benefit-card {
+            background: linear-gradient(145deg, #ffffff 0%, #f8f9fa 100%);
+            border-radius: 20px;
+            padding: 45px;
+            box-shadow: 0 15px 35px rgba(75, 168, 200, 0.1);
+            border: 1px solid rgba(75, 168, 200, 0.1);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .benefit-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, #4BA8C8, #3a8fa8, #4BA8C8);
+            background-size: 200% 100%;
+            animation: shimmer 3s ease-in-out infinite;
+        }
+
+        @keyframes shimmer {
+            0%, 100% { background-position: -200% 0; }
+            50% { background-position: 200% 0; }
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-15px) scale(1.02);
+            box-shadow: 0 25px 50px rgba(75, 168, 200, 0.2);
+            border-color: #4BA8C8;
+        }
+
+        .benefit-icon {
+            font-size: 60px;
+            margin-bottom: 25px;
+            display: block;
+            text-align: center;
+            filter: drop-shadow(0 4px 8px rgba(75, 168, 200, 0.3));
+        }
+
+        .benefit-card h3 {
+            font-size: 26px;
+            color: #333128;
+            margin-bottom: 20px;
+            font-weight: 700;
+            text-align: center;
+        }
+
+        .benefit-card p {
+            font-size: 17px;
+            color: #666;
+            line-height: 1.7;
+            text-align: center;
+            margin: 0;
+        }
+
+        .impact-section {
+            background: linear-gradient(135deg, #4BA8C8 0%, #3a8fa8 100%);
+            padding: 80px 0;
+            color: white;
+            position: relative;
+        }
+
+        .impact-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="white" opacity="0.03"><circle cx="25" cy="25" r="2"/><circle cx="75" cy="25" r="2"/><circle cx="25" cy="75" r="2"/><circle cx="75" cy="75" r="2"/><circle cx="50" cy="50" r="2"/></svg>');
+        }
+
+        .impact-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+        }
+
+        .impact-content h2 {
+            font-size: 42px;
+            margin-bottom: 30px;
+            font-weight: 800;
+        }
+
+        .impact-content p {
+            font-size: 20px;
+            margin-bottom: 50px;
+            opacity: 0.95;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .impact-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .stat-box {
+            text-align: center;
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .stat-number {
+            font-size: 48px;
+            font-weight: 800;
+            margin-bottom: 10px;
+            color: white;
+        }
+
+        .stat-label {
+            font-size: 16px;
+            opacity: 0.9;
+        }
+
+        /* BOTONES */
+        .btn-primary {
+            display: inline-block;
+            padding: 18px 35px;
+            color: #4BA8C8;
+            border: 2px solid #4BA8C8;
+            border-radius: 30px;
+            background-color: white;
+            text-transform: capitalize;
+            font-weight: 700;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 25px rgba(75, 168, 200, 0.2);
+        }
+
+        .btn-primary:hover {
+            background-color: #4BA8C8;
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(75, 168, 200, 0.3);
+        }
+
+        .btn-secondary {
+            display: inline-block;
+            padding: 18px 35px;
+            color: white;
+            border: 2px solid white;
+            border-radius: 30px;
+            background-color: transparent;
+            text-transform: capitalize;
+            font-weight: 700;
+            font-size: 18px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-secondary:hover {
+            background-color: white;
+            color: #4BA8C8;
+            transform: translateY(-3px);
+        }
+
+        /* FOOTER BASE */
+        .footer {
+            padding: 50px 0;
+            background-color: #4BA8C8;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            padding: 0 30px;
+        }
+
+        .link h3 {
+            color: #FFFFFF;
+            font-size: 17px;
+            margin-bottom: 15px;
+        }
+
+        .link a {
+            color: #F3F3F3;
+            font-size: 15px;
+            display: block;
+            margin-bottom: 10px;
+            transition: color 0.3s;
+        }
+
+        .link a:hover {
+            color: #FFFFFF;
+        }
+
+        /* RESPONSIVE */
+        @media(max-width:991px) {
+            .menu {
+                padding: 20px;
+            }
+            
+            .menu label {
+                display: initial;
+            }
+            
+            .navbar {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background-color: #303030;
+                display: none;
+            }
+            
+            .navbar ul {
+                flex-direction: column;
+                gap: 0;
+            }
+            
+            .navbar ul li {
+                width: 100%;
+            }
+            
+            .navbar ul li a {
+                color: #FFFFFF;
+                padding: 20px;
+                border-bottom: 1px solid #444;
+            }
+            
+            .logo {
+                display: none;
+            }
+            
+            #menu:checked ~ .navbar {
+                display: block;
+            }
+
+            .benefits-hero {
+                padding: 60px 20px;
+            }
+
+            .benefits-hero h1 {
+                font-size: 36px;
+            }
+
+            .benefits-hero p {
+                font-size: 18px;
+            }
+
+            .benefits-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+                margin-top: 40px;
+            }
+
+            .benefit-card {
+                padding: 30px;
+            }
+
+            .impact-section {
+                padding: 60px 20px;
+            }
+
+            .impact-content h2 {
+                font-size: 32px;
+            }
+
+            .impact-stats {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 25px;
+            }
+
+            .stat-number {
+                font-size: 36px;
+            }
+            
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+                gap: 30px;
+            }
+
+            .benefits-main {
+                padding: 60px 20px;
+            }
+        }
+
+        @media(max-width:600px) {
+            .benefits-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .benefit-card {
+                margin: 0 10px;
+            }
+
+            .impact-stats {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- HEADER COMÚN -->
+    <header class="header">
+        <div class="menu container">
+            <a href="index.html" class="logo">logo</a>
+            <input type="checkbox" id="menu" />
+            <label for="menu">
+                <img src="images/logo.png" class="menu-icono" alt="menu">
+            </label>
+            <nav class="navbar">
+                <ul>
+                    <li><a href="tec.html">Tecnologías</a></li>
+                    <li><a href="beneficio.html" class="active">Beneficios</a></li>
+                    <li><a href="equipo.html">Equipo</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- HERO SECTION BENEFICIOS -->
+    <section class="benefits-hero">
+        <div class="container">
+            <h1>Beneficios del Proyecto</h1>
+            <p>
+                Nuestra app no solo enseña, también transforma. Con LSM-EI promovemos una sociedad 
+                más equitativa y accesible a través de la tecnología.
+            </p>
+        </div>
+    </section>
+
+    <!-- CONTENIDO PRINCIPAL BENEFICIOS -->
+    <main class="benefits-main">
+        <div class="container">
+            <!-- GRID DE BENEFICIOS -->
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <span class="benefit-icon">♿</span>
+                    <h3>Inclusión Social</h3>
+                    <p>Mejora la comunicación entre personas sordas y oyentes, rompiendo barreras y creando puentes de entendimiento en toda la sociedad.</p>
+                </div>
+
+                <div class="benefit-card">
+                    <span class="benefit-icon">🧠</span>
+                    <h3>Aprendizaje Inmersivo</h3>
+                    <p>La experiencia es visual, interactiva y adaptada a todos los niveles educativos. Cada usuario aprende a su propio ritmo con retroalimentación personalizada.</p>
+                </div>
+
+                <div class="benefit-card">
+                    <span class="benefit-icon">🏫</span>
+                    <h3>Aplicación Educativa</h3>
+                    <p>Puede utilizarse en escuelas, hogares y centros comunitarios. Flexible para diferentes entornos de aprendizaje y metodologías pedagógicas.</p>
+                </div>
+
+                <div class="benefit-card">
+                    <span class="benefit-icon">📱</span>
+                    <h3>Accesible desde Celulares</h3>
+                    <p>No requiere hardware especializado, solo un dispositivo Android. Democratiza el acceso al aprendizaje de LSM sin barreras económicas.</p>
+                </div>
+
+                <div class="benefit-card">
+                    <span class="benefit-icon">🔒</span>
+                    <h3>Privacidad Protegida</h3>
+                    <p>El reconocimiento de señas se realiza de manera local, sin enviar datos a la nube. Tu información personal y gestos permanecen seguros.</p>
+                </div>
+
+                <div class="benefit-card">
+                    <span class="benefit-icon">🌐</span>
+                    <h3>Impacto Comunitario</h3>
+                    <p>Favorece la integración de personas con discapacidad en todos los entornos, construyendo comunidades más inclusivas y empáticas.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- SECCIÓN DE IMPACTO -->
+    <section class="impact-section">
+        <div class="container">
+            <div class="impact-content">
+                <h2>Transformando Vidas</h2>
+                <p>
+                    Cada persona que aprende LSM contribuye a una sociedad más inclusiva. 
+                    Nuestro impacto se mide en conexiones humanas y barreras eliminadas.
+                </p>
+                
+                <div class="impact-stats">
+                    <div class="stat-box">
+                        <div class="stat-number">+5M</div>
+                        <div class="stat-label">Personas sordas en México</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-number">87%</div>
+                        <div class="stat-label">Mejora en comunicación</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-number">100%</div>
+                        <div class="stat-label">Gratuito y accesible</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-number">24/7</div>
+                        <div class="stat-label">Disponible offline</div>
+                    </div>
+                </div>
+
+                <!-- CALL TO ACTION -->
+                <div style="margin-top: 60px;">
+                    <a href="tec.html" class="btn-primary">Ver Tecnologías</a>
+                    <a href="equipo.html" class="btn-secondary">Conocer Equipo</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER COMÚN -->
+    <footer class="footer">
+        <div class="footer-content container">
+            <div class="link">
+                <h3>Proyecto</h3>
+                <ul>
+                    <li><a href="#">¿Qué es LSM-EI?</a></li>
+                    <li><a href="tecnologias.html">Tecnologías</a></li>
+                    <li><a href="#">Impacto</a></li>
+                    <li><a href="beneficios.html">Beneficios</a></li>
+                </ul>
+            </div>
+            
+            <div class="link">
+                <h3>Equipo</h3>
+                <ul>
+                    <li><a href="equipo.html">Conócenos</a></li>
+                    <li><a href="#">Asesores</a></li>
+                    <li><a href="#">Colaboradores</a></li>
+                    <li><a href="#">Créditos</a></li>
+                </ul>
+            </div>
+            
+            <div class="link">
+                <h3>Contacto</h3>
+                <ul>
+                    <li><a href="contacto.html">info@lsm-ei.mx</a></li>
+                    <li><a href="#">Formularios</a></li>
+                    <li><a href="#">Soporte</a></li>
+                    <li><a href="#">Ubicación</a></li>
+                </ul>
+            </div>
+            
+            <div class="link">
+                <h3>Legal</h3>
+                <ul>
+                    <li><a href="#">Aviso de privacidad</a></li>
+                    <li><a href="#">Propiedad intelectual</a></li>
+                    <li><a href="#">Términos de uso</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Script básico para el menú móvil
+        document.addEventListener('DOMContentLoaded', function() {
+            // Marcar página activa en el menú
+            const currentPage = window.location.pathname.split('/').pop();
+            const menuLinks = document.querySelectorAll('.navbar a');
+            
+            menuLinks.forEach(link => {
+                if (link.getAttribute('href') === currentPage) {
+                    link.classList.add('active');
+                }
+            });
+
+            // Animación de entrada para las tarjetas
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+
+            // Aplicar observer a las tarjetas
+            document.querySelectorAll('.benefit-card').forEach((card, index) => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(30px)';
+                card.style.transition = `all 0.6s ease ${index * 0.1}s`;
+                observer.observe(card);
+            });
+        });
+    </script>
+</body>
+</html>
